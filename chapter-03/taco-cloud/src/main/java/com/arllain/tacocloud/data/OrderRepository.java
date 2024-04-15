@@ -1,8 +1,15 @@
 package com.arllain.tacocloud.data;
 
 import com.arllain.tacocloud.domain.tacos.TacoOrder;
+import org.springframework.data.repository.CrudRepository;
 
-public interface OrderRepository {
+import java.util.Date;
+import java.util.List;
 
-    TacoOrder save(TacoOrder order);
+public interface OrderRepository extends CrudRepository<TacoOrder, Long> {
+
+    List<TacoOrder> findByDeliveryZip(String deliveryZip);
+
+    List<TacoOrder> readOrdersByDeliveryZipAndPlacedAtBetween(
+            String deliveryZip, Date startDate, Date endDate);
 }

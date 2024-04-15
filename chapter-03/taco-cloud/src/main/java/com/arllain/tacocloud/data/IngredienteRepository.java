@@ -1,14 +1,8 @@
 package com.arllain.tacocloud.data;
 
 import com.arllain.tacocloud.domain.tacos.Ingredient;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.Optional;
+public interface IngredienteRepository extends CrudRepository<Ingredient,String> {
 
-public interface IngredienteRepository {
-
-    Iterable<Ingredient> findAll();
-
-    Optional<Ingredient> findById(String id);
-
-    Ingredient save(Ingredient ingredient);
 }
