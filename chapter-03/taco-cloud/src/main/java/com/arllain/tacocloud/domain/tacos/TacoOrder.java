@@ -3,12 +3,18 @@ import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
+
+import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 import lombok.Data;
 
 @Data
 public class TacoOrder {
+
+  private Long id;
+
+  private Date placedAt = new Date();
 
   @NotBlank(message="Delivery name is required")
   private String deliveryName;
